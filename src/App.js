@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid, brands } from '@fortawesome/fontawesome-svg-core/import.macro';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,12 +19,12 @@ function App() {
     axios
       .get('https://dummyjson.com/quotes/random')
       .then((response) => {
-        const quote = response.data;
+        const data = response.data;
 
-        setQuote(quote.quote);
-        setAuthor(quote.author);
-        console.log(quote.quote);
-        console.log(quote.author);
+        setQuote(data.quote);
+        setAuthor(data.author);
+        console.log(data.quote);
+        console.log(data.author);
       })
 
       .catch((error) => {
@@ -29,37 +32,67 @@ function App() {
       });
   };
 
-  const text = quote;
-  const person = author;
+  const quoteText = quote;
+  const quoteAuthor = author;
 
   return (
     <div className='app'>
-      <div id='quote-box' className='card'>
-        <p id='text' className='heading'>
-          {text}
-        </p>
-        <h2 id='author'>{person}</h2>
-        <button id='new-quote' className='button' onClick={fetchAdvice}>
-          <span>New Quote</span>
-        </button>
-        <a id='tweet-quote' href='twitter.com/intent/tweet' target='_blank'>
-          Tweet Quote
-        </a>
-      </div>
-      <header className='App-header'>
+      <div id='logo'>
         <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div id='quote-box' className='card'>
+        <div className='quote'>
+          <h2 id='quote'>
+            <FontAwesomeIcon icon={solid('quote-left')} /> {quoteText}{' '}
+            <FontAwesomeIcon icon={solid('quote-right')} />
+          </h2>
+          <h3 id='author'>- {quoteAuthor}</h3>
+        </div>
+        <div className='button-box'>
+          <a
+            id='tweet-quote'
+            className='button'
+            href='twitter.com/intent/tweet'
+            target='_blank'
+          >
+            <span>
+              Tweet Quote <FontAwesomeIcon icon={brands('twitter')} />
+            </span>
+          </a>
+          <button id='new-quote' className='button' onClick={fetchAdvice}>
+            <span>
+              New Quote <FontAwesomeIcon icon={solid('quote-left')} />
+            </span>
+          </button>
+        </div>
+      </div>
+      <div id='footer'>
+        <footer>
+          <p>
+            Created by DiKeySnakes for
+            <a
+              href='https://www.freecodecamp.org/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {' '}
+              freeCodeCamp <FontAwesomeIcon icon={brands('free-code-camp')} />
+            </a>{' '}
+            curriculum
+          </p>
+          <p>
+            Copyright © DiKeySnakes 2023
+            <a
+              href='https://github.com/DiKeySnakes/random-quote-machine-project'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              {' '}
+              <FontAwesomeIcon id='githubIcon' icon={brands('github')} />
+            </a>
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
