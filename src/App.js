@@ -42,7 +42,7 @@ function App() {
       </div>
       <div id='quote-box' className='card'>
         <div className='quote'>
-          <h2 id='quote'>
+          <h2 id='text'>
             <FontAwesomeIcon icon={solid('quote-left')} /> {quoteText}{' '}
             <FontAwesomeIcon icon={solid('quote-right')} />
           </h2>

@@ -93,7 +93,7 @@ body {
   font-size: calc(0.2rem + 2vmin);
 }
 
-#quote {
+#text {
   margin-bottom: 3%;
 }
 
@@ -215,13 +215,11 @@ body {
 @media only screen and (max-width: 1007px) {
   .card {
     width: 60%;
-    /* height: 30%; */
   }
 }
 
 @media only screen and (max-width: 600px) {
   .card {
     width: 80%;
-    /* height: 40%; */
   }
 }
