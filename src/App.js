@@ -12,10 +12,10 @@ function App() {
   const [author, setAuthor] = useState('');
 
   useEffect(() => {
-    fetchAdvice();
+    fetchRandomQuote();
   }, []);
 
-  const fetchAdvice = () => {
+  const fetchRandomQuote = () => {
     axios
       .get('https://dummyjson.com/quotes/random')
       .then((response) => {
@@ -23,8 +23,6 @@ function App() {
 
         setQuote(data.quote);
         setAuthor(data.author);
-        console.log(data.quote);
-        console.log(data.author);
       })
 
       .catch((error) => {
@@ -59,7 +57,7 @@ function App() {
               Tweet Quote <FontAwesomeIcon icon={brands('twitter')} />
             </span>
           </a>
-          <button id='new-quote' className='button' onClick={fetchAdvice}>
+          <button id='new-quote' className='button' onClick={fetchRandomQuote}>
             <span>
               New Quote <FontAwesomeIcon icon={solid('quote-left')} />
             </span>

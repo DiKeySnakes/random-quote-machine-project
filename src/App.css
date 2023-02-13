@@ -1,12 +1,6 @@
 :root {
   --main-white: #f0f0f0;
-  --main-red: #be3144;
-  --main-blue: hsla(222, 29%, 38%, 0.9);
-  --main-light-blue: rgba(83, 158, 208, 1);
-  --main-light-green: rgba(101, 231, 101, 1);
   --main-gray: #303841;
-  --main-light-gray: hsla(238, 8%, 62%, 1);
-  --main-text-shadow: 0.5rem 0.5rem 0.25rem rgba(0, 0, 0, 0.75);
   --main-box-shadow: 2.5rem 2.5rem 1.25rem 0rem rgba(0, 0, 0, 0.35);
 }
 
@@ -56,16 +50,16 @@ html {
 #root,
 body {
   height: 100vh;
-  /* font-size: 1.8rem; */
   font-weight: 400;
   line-height: 1.4;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .app {
   height: 100%;
-  background: linear-gradient(rgba(9, 9, 121, 100), rgba(0, 212, 255, 100));
-  background-size: cover;
-  background-position: center;
+  background: #1488cc;
+  background: -webkit-linear-gradient(to bottom, #2b32b2, #1488cc);
+  background: linear-gradient(to bottom, #2b32b2, #1488cc);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,7 +83,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Spartan', sans-serif;
   font-size: calc(0.2rem + 2vmin);
 }
 
@@ -168,7 +161,6 @@ body {
 }
 
 #githubIcon {
-  text-shadow: var(--main-text-shadow);
   transition: transform 0.3s ease-in-out;
 }
 
